@@ -30,12 +30,13 @@ function onInputFilled(event) {
 const formData = {};
 const savedInLocalStorage = JSON.parse(localStorage.getItem('feedback-form-state'));
 
-if (savedInLocalStorage) {
+if (savedInLocalStorage === null) {
+  return;
+} {
   form.email.value = savedInLocalStorage.email;
   form.message.value = savedInLocalStorage.message;
-} else {
-  return form.message.value = ``;
 }
 
 form.addEventListener('input', throttle(onInputFilled, 500));
 form.addEventListener('submit', onFormSubmit);
+
