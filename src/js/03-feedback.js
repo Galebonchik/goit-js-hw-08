@@ -33,6 +33,8 @@ const savedInLocalStorage = JSON.parse(localStorage.getItem('feedback-form-state
 if (savedInLocalStorage) {
   form.email.value = savedInLocalStorage.email;
   form.message.value = savedInLocalStorage.message;
+} else {
+  return form.message.value = ``;
 }
 
 form.addEventListener('input', throttle(onInputFilled, 500));
