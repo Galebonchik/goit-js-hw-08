@@ -32,8 +32,11 @@ const savedInLocalStorage = JSON.parse(localStorage.getItem('feedback-form-state
 
 
 if (savedInLocalStorage) {
-  form.email.value = savedInLocalStorage.email || '';
-  form.message.value = savedInLocalStorage.message || '';
+  form.email.value = savedInLocalStorage.email ?? '';
+  form.message.value = savedInLocalStorage.message ?? '';
+
+  formData.email = savedInLocalStorage.email ?? '';
+  formData.message = savedInLocalStorage.message ?? '';
 } 
   
 
